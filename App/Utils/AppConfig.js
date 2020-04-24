@@ -7,3 +7,6 @@
 
     //Interstital Ads Id
     export const InterstitialAdID = 'ca-app-pub-3940256099942544/1033173712';
+
+    //URL for API Calls
+    export const URL = 'https://owais-spinapp.herokuapp.com/checked';
