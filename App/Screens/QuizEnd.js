@@ -8,8 +8,23 @@ import {
 } from 'react-native';
 import React, { Component, useState, useEffect } from 'react';
 import { height, totalSize, width } from 'react-native-dimension';
+import axios from 'axios';
+import { URL } from '../Utils/AppConfig';
 
 export const QuizEnd = (props) => {
+    const [ checked, setChecked] = useState(false);
+    useEffect(() => {
+      axios.get(URL)
+      .then(function (response) {
+        // handle success
+        setChecked(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+    }, [])
+
     return (
         <View style={styles.container}>
             <View style={{ alignItems: 'center', marginTop: height(16),paddingHorizontal:20 }}>
@@ -42,7 +57,19 @@ export const QuizEnd = (props) => {
                         }}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => Alert.alert(
+                'Quiz Free Bucks',
+                'Free V-Bucks',
+                !checked ? [
+                    { text: 'OK', onPress: () => console.log('Ask me later pressed') },
+                    { text: 'GET FREE V-BUCKS', onPress: () => {
+                    InterstitialAd();
+                    props.navigation.push('WebVBucks')
+                    }
+                },
+                ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
+                { cancelable: false },
+                )}>
                     <Image
                         source={require('../Assets/free_rbx.png')}
                         resizeMode="contain"

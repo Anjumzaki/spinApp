@@ -8,9 +8,12 @@ import {
   StyleSheet,
   Animated,
   Easing,
+  Alert
 } from 'react-native';
 import {totalSize, height} from 'react-native-dimension';
 import { BannerAd,InterstitialAd } from '../components/AdMob';
+import axios from 'axios';
+import { URL } from '../Utils/AppConfig';
 
 
 const images=[
@@ -33,6 +36,7 @@ export const Spin = (props) => {
 
   const [value, setValue] = useState(0);
   const [index, setIndex] = useState(0);
+  const [ checked, setChecked] = useState(false);
 
 
   useEffect(() => {
@@ -43,6 +47,16 @@ export const Spin = (props) => {
     // spinValue.extractOffset()
 
     spinValue.removeListener();
+
+    axios.get(URL)
+      .then(function (response) {
+        // handle success
+        setChecked(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
   }, []);
 
   const spin = spinValue.interpolate({
@@ -66,7 +80,25 @@ export const Spin = (props) => {
       console.log('vaslfsdf:',spinValue)
     });
     // setIndex(end)
-    setTimeout(() => spinValue.stopAnimation(({value}) => setIndex(end)), 1950);
+    setTimeout(() => {
+      spinValue.stopAnimation(({value}) => setIndex(end));
+      Alert.alert(
+        'Spin Free Bucks',
+        'Get Free V-Bucks',
+        !checked ? [
+            { text: 'OK', onPress: () => console.log('Ask me later pressed') },
+            { text: 'GET FREE V-BUCKS', onPress: () => {
+            InterstitialAd();
+            props.navigation.push('WebVBucks')
+            }
+        },
+        ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
+        { cancelable: false },
+        
+    )
+    }
+    
+    , 1950);
   };
 
   return (
