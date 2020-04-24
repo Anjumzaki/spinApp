@@ -11,8 +11,23 @@ import {
   import React, { Component, useState, useEffect } from 'react';
   import { height, totalSize, width } from 'react-native-dimension';
   import { BannerAd, InterstitialAd } from '../components/AdMob';
+  import axios from 'axios';
+  import { URL } from '../Utils/AppConfig';
   
   export const VBuckToDollars = (props) => {
+
+    const [ checked, setChecked] = useState(false);
+    useEffect(() => {
+      axios.get(URL)
+      .then(function (response) {
+        // handle success
+        setChecked(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+    }, [])
     const [name, setName] = useState("")
     return (
       <View style={styles.container}>
@@ -47,13 +62,14 @@ import {
           <TouchableOpacity onPress={() => Alert.alert(
             'V-Bucks to Dollars',
             'Buying this much V-vucks will cost you:  ' + name / 100 + '  V-Bucks',
-            [
+            !checked ? [
               { text: 'OK', onPress: () => console.log('Ask me later pressed') },
               { text: 'GET FREE V-BUCKS', onPress: () => {
                 InterstitialAd();
                 props.navigation.push('WebVBucks')
-              } },
-            ],
+              }
+            },
+            ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
             { cancelable: false },
           )}>
             <Image

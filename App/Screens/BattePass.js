@@ -11,9 +11,23 @@ import {
 import React, { Component, useState, useEffect } from 'react';
 import { height, totalSize, width } from 'react-native-dimension';
 import { BannerAd,InterstitialAd } from '../components/AdMob';
+import axios from 'axios';
+import { URL } from '../Utils/AppConfig';
 
 export const BattlePass = (props) => {
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
+    const [ checked, setChecked] = useState(false);
+    useEffect(() => {
+      axios.get(URL)
+      .then(function (response) {
+        // handle success
+        setChecked(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+    }, [])
   
   return (
     <View style={styles.container}>
@@ -46,10 +60,14 @@ export const BattlePass = (props) => {
         <TouchableOpacity onPress={() => Alert.alert(
           'Battle Pass Tiers Cost',
           'This battle pass tiers amount will cost you:  ' + name * 30 + '  V-Bucks',
-          [
+          !checked ? [
             { text: 'OK', onPress: () => console.log('Ask me later pressed') },
-            { text: 'GET FREE V-BUCKS', onPress: () => props.navigation.push('WebVBucks') },
-          ],
+            { text: 'GET FREE V-BUCKS', onPress: () => {
+              InterstitialAd();
+              props.navigation.push('WebVBucks')
+            }
+          },
+          ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
           { cancelable: false },
         )}>
           <Image
