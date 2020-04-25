@@ -155,7 +155,9 @@ export const Spin = (props) => {
                     }}
                 />
             </TouchableOpacity>
-        ) : null
+        ) : (
+          <View style={{height: 75}}></View>
+        )
 
         }
         
@@ -166,5 +168,5 @@ export const Spin = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', paddingTop:height(20)},
+  container: {flex: 1, alignItems: 'center', justifyContent:'center', paddingTop:height(10)},
 });
