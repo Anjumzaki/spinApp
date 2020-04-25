@@ -20,7 +20,8 @@ const styles = {
     container: {
         width: '100%',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: '10%'
     }
 }
 
