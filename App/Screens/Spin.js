@@ -112,7 +112,6 @@ export const Spin = (props) => {
 
         <Animated.Image
           source={images[3].image}
-          resizeMode="contain"
           style={{
             height: totalSize(30),
             width: totalSize(30),
@@ -160,13 +159,14 @@ export const Spin = (props) => {
         )
 
         }
-        
+
       </View>
+          
       <BannerAd />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', justifyContent:'center', paddingTop:height(10)},
+  container: {flex: 1, alignItems: 'center', justifyContent:'center', paddingTop:height(5)},
 });
