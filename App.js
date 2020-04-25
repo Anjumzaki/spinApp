@@ -42,72 +42,72 @@ function App() {
         <Stack.Screen
           name="About"
           component={About}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
 
         <Stack.Screen
           name="Spin"
           component={Spin}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
 
         <Stack.Screen
           name="Counter"
           component={Counter}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
 
         <Stack.Screen
           name="VBucks"
           component={VBucks}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
 
         <Stack.Screen
           name="SaveWorld"
           component={SaveWorld}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
 
         <Stack.Screen
           name="BattlePass"
           component={BattlePass}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
          <Stack.Screen
           name="VBuckToDollars"
           component={VBuckToDollars}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
          <Stack.Screen
           name="DollarsToVBucks"
           component={ DollarsToVBucks}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="DailyVBucks"
           component={ DailyVBucks}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="UpgradeLlama"
           component={ UpgradeLlama}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="Quiz"
           component={Quiz}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="QuizEnd"
           component={QuizEnd}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
         <Stack.Screen
           name="WebVBucks"
           component={WebVBucks}
-          options={{headerShown: false}}
+          options={{title: ''}}
         />
        
        
