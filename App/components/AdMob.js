@@ -19,9 +19,9 @@ export const BannerAd = () => {
 const styles = {
     container: {
         width: '100%',
-        justifyContent: 'center',
+        flex: 1,
+        justifyContent: 'flex-end',
         alignItems: 'center',
-        marginTop: '5%'
     }
 }
 
