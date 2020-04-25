@@ -21,7 +21,7 @@ const styles = {
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '10%'
+        marginTop: '5%'
     }
 }
 
