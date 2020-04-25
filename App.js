@@ -42,47 +42,57 @@ function App() {
         <Stack.Screen
           name="About"
           component={About}
+          options={{headerShown: false}}
         />
 
         <Stack.Screen
           name="Spin"
           component={Spin}
+          options={{headerShown: false}}
         />
 
         <Stack.Screen
           name="Counter"
           component={Counter}
+          options={{headerShown: false}}
         />
 
         <Stack.Screen
           name="VBucks"
           component={VBucks}
+          options={{headerShown: false}}
         />
 
         <Stack.Screen
           name="SaveWorld"
           component={SaveWorld}
+          options={{headerShown: false}}
         />
 
         <Stack.Screen
           name="BattlePass"
           component={BattlePass}
+          options={{headerShown: false}}
         />
          <Stack.Screen
           name="VBuckToDollars"
           component={VBuckToDollars}
+          options={{headerShown: false}}
         />
          <Stack.Screen
           name="DollarsToVBucks"
           component={ DollarsToVBucks}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="DailyVBucks"
           component={ DailyVBucks}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="UpgradeLlama"
           component={ UpgradeLlama}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="Quiz"
@@ -92,10 +102,12 @@ function App() {
         <Stack.Screen
           name="QuizEnd"
           component={QuizEnd}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="WebVBucks"
           component={WebVBucks}
+          options={{headerShown: false}}
         />
        
        
