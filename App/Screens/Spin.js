@@ -37,6 +37,7 @@ export const Spin = (props) => {
   const [value, setValue] = useState(0);
   const [index, setIndex] = useState(0);
   const [ checked, setChecked] = useState(false);
+  const [ btnAppear, setBtnAppear ] = useState(false);
 
 
   useEffect(() => {
@@ -66,6 +67,9 @@ export const Spin = (props) => {
 
 
   const spinWheel = () => {
+
+    if( btnAppear ) setBtnAppear(false);
+    
     setIndex(0)
 
     const end= Math.floor(Math.random() * 10) + 1
@@ -82,20 +86,8 @@ export const Spin = (props) => {
     // setIndex(end)
     setTimeout(() => {
       spinValue.stopAnimation(({value}) => setIndex(end));
-      Alert.alert(
-        'Spin Free Bucks',
-        'Get Free V-Bucks',
-        !checked ? [
-            { text: 'OK', onPress: () => console.log('Ask me later pressed') },
-            { text: 'GET FREE V-BUCKS', onPress: () => {
-            InterstitialAd();
-            props.navigation.push('WebVBucks')
-            }
-        },
-        ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
-        { cancelable: false },
-        
-    )
+      // Btn appearance func
+      setBtnAppear(true);
     }
     
     , 1950);
@@ -105,6 +97,19 @@ export const Spin = (props) => {
     <View style={styles.container}>
       <View style={{overflow: 'hidden'}}>
         
+        <Image
+            source={require('../Assets/pointer.png')}
+            resizeMode="contain"
+            style={{
+              height: totalSize(5),
+              width: totalSize(5),
+              alignSelf: 'center',
+              position: "absolute",
+              zIndex: 200,
+              marginTop: -5
+            }}
+        />
+
         <Animated.Image
           source={images[3].image}
           resizeMode="contain"
@@ -126,6 +131,33 @@ export const Spin = (props) => {
             }}
           />
         </TouchableOpacity>
+
+        { btnAppear ? (
+          <TouchableOpacity onPress={() => Alert.alert(
+            'Quiz Free Bucks',
+            'Free V-Bucks',
+            !checked ? [
+                { text: 'OK', onPress: () => console.log('Ask me later pressed') },
+                { text: 'GET FREE V-BUCKS', onPress: () => {
+                InterstitialAd();
+                props.navigation.push('WebVBucks')
+                }
+            },
+            ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
+            { cancelable: false },
+            )}>
+                <Image
+                    source={require('../Assets/free_rbx.png')}
+                    resizeMode="contain"
+                    style={{
+                        height: totalSize(10),
+                        width: totalSize(32),
+                    }}
+                />
+            </TouchableOpacity>
+        ) : null
+
+        }
         
       </View>
       <BannerAd />
