@@ -126,14 +126,14 @@ export default class Quiz extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ marginTop: totalSize(5), alignItems: 'flex-end' }}>
+                <View style={{ marginTop: totalSize(5), alignItems: 'flex-end'}}>
                     <Text style={{ fontSize: 30, color: 'teal', fontWeight: 'bold', fontStyle: 'italic' }}>
-        {this.state.quizNu+1}/{quizes.length}
+                       {this.state.quizNu+1}/{quizes.length}
                     </Text>
                 </View>
-                <View style={{ marginTop: totalSize(8), alignItems: 'center', marginBottom: totalSize(8), flex: 1 }}>
+                <View style={{ paddingTop: totalSize(8), alignItems: 'center',  paddingBottom:totalSize(2)}}>
 
-                    <Text style={{ fontSize: 30, color: 'teal', fontWeight: 'bold', fontStyle: 'italic', marginBottom: totalSize(8) }}>
+                    <Text style={{paddingBottom:totalSize(8),fontSize: 30, color: 'teal', fontWeight: 'bold', fontStyle: 'italic' }}>
                         {quizes[this.state.quizNu].question}
                     </Text>
                     {quizes[this.state.quizNu].answer.map((item, i) => (
