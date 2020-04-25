@@ -22,6 +22,7 @@ const styles = {
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom:50
     }
 }
 

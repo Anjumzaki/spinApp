@@ -32,17 +32,7 @@ import {
 
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback
-          onPress={() => {
-           
-            props.navigation.navigate('About')
-          }}>
-          <Image
-            source={require('../Assets/share.png')}
-            resizeMode="contain"
-            style={styles.share}
-          />
-        </TouchableWithoutFeedback>
+       
         <Image
           source={require('../Assets/titile6.png')}
           resizeMode="contain"
@@ -83,7 +73,9 @@ import {
             />
           </TouchableOpacity>
         </View>
+        
         <BannerAd/>
+
       </View>
     );
   };

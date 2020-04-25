@@ -13,17 +13,7 @@ import { BannerAd,InterstitialAd } from '../components/AdMob';
 export const VBucks = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          InterstitialAd();
-          props.navigation.navigate('About');
-        }}>
-        <Image
-          source={require('../Assets/share.png')}
-          resizeMode="contain"
-          style={styles.share}
-        />
-      </TouchableWithoutFeedback>
+    
       <Image
         source={require('../Assets/vbucksText.png')}
         resizeMode="contain"

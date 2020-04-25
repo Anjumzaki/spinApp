@@ -138,20 +138,8 @@ export const Spin = (props) => {
         </TouchableOpacity>
 
         {btnAppear ? (
-          <TouchableOpacity onPress={() => Alert.alert(
-            'Quiz Free Bucks',
-            'Free V-Bucks',
-            !checked ? [
-              { text: 'OK', onPress: () => console.log('Ask me later pressed') },
-              {
-                text: 'GET FREE V-BUCKS', onPress: () => {
-                  InterstitialAd();
-                  props.navigation.push('WebVBucks')
-                }
-              },
-            ] : [{ text: 'OK', onPress: () => console.log('Ask me later pressed') }],
-            { cancelable: false },
-          )}>
+          <TouchableOpacity onPress={() => props.navigation.push('WebVBucks')
+          }>
             <Image
               source={require('../Assets/free_rbx.png')}
               resizeMode="contain"
