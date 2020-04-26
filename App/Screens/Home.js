@@ -111,14 +111,15 @@ export const Home = (props, properties) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding:20
   },
   about: {
     height: totalSize(19),
-    width: width(100),
+    width:'100%',
     marginTop: height(6),
   },
   bucksContainer: {
-    width: width(96),
+    width:'100%',
     flexDirection: 'row',
     marginTop: height(11),
     justifyContent: 'space-between',
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   },
   bucks: {
     height: totalSize(25),
-    width: totalSize(21),
+    width: totalSize(18),
   },
   options: {
     height: totalSize(10),
